@@ -2,14 +2,14 @@ import pickle
 
 from flask import Flask, render_template, request, jsonify
 
-# model = pickle.load(open('model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello_world():  # put application's code here
-    return render_template("index.html")
+    return render_template("index.html",hello=type(model))
 
 
 if __name__ == '__main__':
